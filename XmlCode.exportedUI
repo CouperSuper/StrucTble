@@ -1,0 +1,130 @@
+<mso:cmd app="Excel" dt="0" />
+<!-- <?xml version="1.0" standalone="yes"?> -->
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+	<ribbon startFromScratch="false">
+		<tabs>
+			<tab id="Addins" label="Инструменты" insertBeforeMso="TabFormulas">
+				
+				<group id="SheetsBlock" label="Работа массивами" imageMso="DatasheetView">
+					
+					<button id="DelEmptyCol" label="Удалить пустые колонки" onAction="DelEmptyCol" imageMso="ColumnWidth" size="normal" 
+					supertip="Удаляет все пустые колонки в выбранном диапазоне данных."/>
+					
+					<button id="DelEmptyRow" label="Удалить пустые строки" onAction="DelEmptyRow" imageMso="RowHeight" size="normal" 
+					supertip="Удаляет пустые строки в активном диапазоне, облегчая работу с большими массивами."/>
+					
+					<button idMso="TableSelectVisibleCells" showLabel="true" size="normal" 
+					supertip="Выделяет только видимые ячейки, исключая скрытые строки и колонки."/>
+				
+				</group>
+				
+				
+				<group id="PivotTab" label="Сводные таблицы" imageMso="PivotTableEnableWhatIfAnalysis">
+					
+					<button idMso="CreatePivotTableFromTableRange" showLabel="true" size="large" 
+					supertip="Создает сводную таблицу из текущего диапазона данных, упрощая анализ."/>
+					
+					<button idMso="PivotTableChangeDataSource" showLabel="true" size="large" 
+					supertip="Позволяет изменить источник данных для существующей сводной таблицы."/>
+					
+				</group>
+				
+				
+				<group id="Lvl" label="Работа с уровнями" imageMso="LineNumbersMenu">
+					
+					<button id="LvlPivot" label="Назначение уровней сводные таблицы" onAction="LvlPivot" imageMso="LineNumbersMenu" size="large" 
+					supertip="Назначает уровни для использования в сводных таблицах, оптимизируя их структуру."/>
+					
+					<button id="Summ" label="Суммирование по структуре" onAction="Summary" image="sum" size="large" 
+					supertip="Суммирует данные по заданной иерархической структуре."/>
+					
+					<button id="ColorSc" label="Форматирование уровней" onAction="Format" image="Bottled" size="large" 
+					supertip="Применяет цветовое форматирование к уровням данных для улучшения визуального восприятия."/>
+					
+					<comboBox id="CF" onChange="ColorFormat" sizeString="XXXXXXXXXXXXX">
+						<item id="It1" label="Корпоративный брэндбук" imageMso="AppointmentColor1"/>
+						<item id="It2" label="Брэндбук монохром" imageMso="AppointmentColor4"/>
+						<item id="It3" label="Бизнес-синий" imageMso="AppointmentBusy"/>
+						<item id="It4" label="Теплый акцент" imageMso="AppointmentColor3"/>
+						<item id="It5" label="Холодный аналитический" imageMso="AppointmentColor9"/>
+						<item id="It6" label="Осенняя палитра" imageMso="AppointmentColor1"/>
+						<item id="It7" label="Песчаный градиент" imageMso="AppointmentColor5"/>
+					</comboBox>
+					
+					<toggleButton idMso="Filter" showLabel="true" size="normal"/>
+					
+					<menu idMso="ClearMenu"/>
+				
+				</group>
+				
+				
+				<group id="GroupLvl" label="Группировка уровней" image="group">
+					
+					<button id="Group" label="Группировка по уровням" onAction="Group" image="group" size="large" 
+					supertip="Группирует данные по уровням, создавая удобную иерархическую структуру."/>
+					
+					<button id="UnGroup" label="Удалить структуру" onAction="UnGroup" image="Ungroup" size="normal" 
+					supertip="Удаляет существующую группировку данных."/>
+					
+					<button id="DownOpen" label="Раскрытие вниз" onAction="DownOpen" imageMso="FillDown" size="normal" 
+					supertip="Автоматически раскрывает вложенные уровни структуры вниз."/>
+					
+					<button id="RightOpen" label="Раскрытие вправо" onAction="RightOpen" imageMso="FillRight" size="normal" 
+					supertip="Автоматически раскрывает вложенные уровни структуры вправо."/>
+					
+				</group>
+				
+				
+				<group idQ="GroupDataQueriesAndConnectionsWorkbookLinks" label="Запросы и подключения"/>
+				
+				
+				<group id="Data" label="Данные" imageMso="DatabaseQueryNew">
+					
+					<menu idQ="PowerQueryGetTransformDataMenuSubscription19"/>
+					
+					<button idQ="PowerQueryGetTransformDataLaunchQueryEditor"/>
+					
+					<button idQ="StatusWorkbookStatistics"/>
+					
+				</group>
+				
+				
+				<group id="SmartArt" label="Объекты SmartArt" imageMso="SmartArtInsert">
+					
+					<button idMso="SmartArtInsert" showLabel="true" size="large"/>
+					
+					<button idMso="SmartArtChangeLayout" showLabel="true" size="large"/>
+					
+					<button id="SmartArtInj" label="Наполнить SmartArt" onAction="SmartInj" imageMso="TraceDependentCells" size="large" 
+					supertip="заполняет структуру SmartArt по сводной таблицы или столбца с отступами"/>
+					
+					<button idMso="IndentIncreaseExcel" showLabel="true" size="normal"/>
+					
+					<button idMso="IndentDecreaseExcel" showLabel="true" size="normal"/>
+					
+					<button id="SmartLvl" label="Назначить отступы по уровню" onAction="ValueIdentLvl" imageMso="LevelNow" size="normal" 
+					supertip="Назначает отступы по номеру уровней"/>
+					
+				</group>
+				
+				
+				<group id="Special" label="Функции Primavera" image="Data">
+				
+					<button id="Date" label="Даты Primavera" onAction="Data" image="Data" size="large" 
+					supertip="Конвертирует даты формата Primavera в удобный для анализа вид."/>
+				
+					<button id="LvlUnload" label="Уровни Primavera" onAction="LvlUnload" image="PrimaUnload" size="large" 
+					supertip="Загружает уровни иерархии из Primavera."/>
+				
+					<button id="HyperLink" label="Гиперссылки" onAction="HyperLink" image="website" size="large" 
+					supertip="Создает гиперссылки на связанные документы или веб-ресурсы."/>
+					
+					<button id="КСУНСИ" label="КСУНСИ" onAction="IPKS" image="IPKS" size="large" 
+					supertip="Назначает классификацию КСУНСИ из справочника."/>
+					
+				</group>
+				
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>
